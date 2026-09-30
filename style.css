@@ -1,0 +1,255 @@
+/* CyberSafe Project Stylesheet - Diploma IT Mini Project */
+
+/* General Page Styling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F8E7C9;
+  color: #064E3B;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Tabs */
+.nav-tab {
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-tab.active {
+  color: #F8E7C9 !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #F8E7C9 !important;
+  background-color: rgba(248, 231, 201, 0.12);
+}
+
+/* Card Boxes */
+.cyber-box {
+  background-color: #FDF8EF;
+  border: 1px solid #D9BF8F;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.cyber-box:hover {
+  border-color: #064E3B;
+  box-shadow: 0 0 10px rgba(6, 78, 59, 0.15);
+}
+
+/* Common Buttons */
+.btn-green {
+  background-color: #064E3B;
+  color: #F8E7C9;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-green:hover {
+  background-color: #043B2D;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #064E3B;
+  border: 1px solid #064E3B;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: #064E3B;
+  color: #F8E7C9;
+}
+
+/* ===================================================
+   CyberSafe Certified ID Card Styling
+   Aspect Ratio: 85mm x 54mm (Credit card / ID card standard)
+   =================================================== */
+
+.id-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#idCard {
+  width: 480px;
+  max-width: 100%;
+  aspect-ratio: 85 / 54;
+  background: linear-gradient(135deg, #FDF8EF 0%, #F3DDB5 100%);
+  border: 2px solid #064E3B;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(6, 78, 59, 0.2);
+  padding: 20px;
+  color: #064E3B;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ID Card Header */
+.id-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(6, 78, 59, 0.3);
+  padding-bottom: 10px;
+}
+
+.id-header-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #064E3B;
+  text-transform: uppercase;
+}
+
+.id-header-sub {
+  font-size: 10px;
+  color: #35604F;
+}
+
+.id-chip {
+  width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, #d4af37, #f3e5ab);
+  border: 1px solid #b8860b;
+  border-radius: 4px;
+}
+
+/* ID Card Middle / Body */
+.id-card-body {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.id-photo {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  border-radius: 50%;
+  border: 2px solid #064E3B;
+  overflow: hidden;
+  background-color: #F3DDB5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.id-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.id-details {
+  flex: 1;
+}
+
+.id-name {
+  font-size: 17px;
+  font-weight: bold;
+  color: #064E3B;
+  margin-bottom: 4px;
+}
+
+.id-number {
+  font-size: 12px;
+  color: #064E3B;
+  font-family: monospace;
+  margin-bottom: 6px;
+}
+
+.id-badge {
+  display: inline-block;
+  background: rgba(6, 78, 59, 0.1);
+  border: 1px solid #064E3B;
+  color: #064E3B;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.id-score-area {
+  text-align: right;
+  min-width: 70px;
+}
+
+.id-score-num {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.id-score-label {
+  font-size: 9px;
+  color: #35604F;
+  text-transform: uppercase;
+}
+
+/* Score Colors */
+.score-green { color: #064E3B; }
+.score-yellow { color: #b45309; }
+.score-red { color: #b91c1c; }
+
+/* ID Card Footer */
+.id-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(6, 78, 59, 0.3);
+  padding-top: 8px;
+  font-size: 10px;
+  color: #35604F;
+}
+
+/* Print Only CSS */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .no-print, header, footer {
+    display: none !important;
+  }
+  .id-card-wrapper,
+  #idCard,
+  #idCard * {
+    visibility: visible;
+  }
+  .id-card-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  #idCard {
+    width: 85mm !important;
+    height: 54mm !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* Register button sits on the dark header, so flip its colours there */
+header .btn-green {
+  background-color: #F8E7C9;
+  color: #064E3B;
+}
+
+header .btn-green:hover {
+  background-color: #ffffff;
+}
