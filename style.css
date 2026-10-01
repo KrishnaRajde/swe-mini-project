@@ -1,4 +1,4 @@
-/* CyberSafe Project Stylesheet - Diploma IT Mini Project */
+/* CyberSafe Project Stylesheet - Lime Spark (#B6FF2E) & Graphite (#23262F) Theme */
 
 /* General Page Styling */
 html {
@@ -6,8 +6,8 @@ html {
 }
 
 body {
-  background-color: #F8E7C9;
-  color: #064E3B;
+  background-color: #181A20;
+  color: #E2E8F0;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -17,54 +17,70 @@ body {
 .nav-tab {
   transition: all 0.2s ease-in-out;
   border-bottom: 2px solid transparent;
+  color: #94A3B8;
+}
+
+.nav-tab:hover {
+  color: #B6FF2E;
 }
 
 .nav-tab.active {
-  color: #F8E7C9 !important;
+  color: #B6FF2E !important;
   font-weight: 700 !important;
-  border-bottom: 2px solid #F8E7C9 !important;
-  background-color: rgba(248, 231, 201, 0.12);
+  border-bottom: 2px solid #B6FF2E !important;
+  background-color: rgba(182, 255, 46, 0.1);
 }
 
 /* Card Boxes */
 .cyber-box {
-  background-color: #FDF8EF;
-  border: 1px solid #D9BF8F;
-  border-radius: 10px;
-  transition: 0.2s;
-}
-
-.cyber-box:hover {
-  border-color: #064E3B;
-  box-shadow: 0 0 10px rgba(6, 78, 59, 0.15);
+  background-color: #23262F;
+  border: 1px solid #323743;
+  border-radius: 12px;
+  color: #E2E8F0;
 }
 
 /* Common Buttons */
-.btn-green {
-  background-color: #064E3B;
-  color: #F8E7C9;
+.btn-green, .btn-lime {
+  background-color: #B6FF2E;
+  color: #23262F;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.btn-green:hover {
-  background-color: #043B2D;
+.btn-green:hover, .btn-lime:hover {
+  background-color: #9FE61B;
+  box-shadow: 0 0 12px rgba(182, 255, 46, 0.35);
+  color: #181A20;
 }
 
 .btn-outline {
   background: transparent;
-  color: #064E3B;
-  border: 1px solid #064E3B;
+  color: #B6FF2E;
+  border: 1px solid #B6FF2E;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .btn-outline:hover {
-  background-color: #064E3B;
-  color: #F8E7C9;
+  background-color: #B6FF2E;
+  color: #23262F;
+}
+
+.btn-outline-green {
+  background: transparent;
+  color: #B6FF2E;
+  border: 1px solid #B6FF2E;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-outline-green:hover {
+  background-color: #B6FF2E;
+  color: #23262F;
 }
 
 /* ===================================================
@@ -83,12 +99,12 @@ body {
   width: 480px;
   max-width: 100%;
   aspect-ratio: 85 / 54;
-  background: linear-gradient(135deg, #FDF8EF 0%, #F3DDB5 100%);
-  border: 2px solid #064E3B;
+  background: linear-gradient(135deg, #23262F 0%, #16181E 100%);
+  border: 2px solid #B6FF2E;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(6, 78, 59, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(182, 255, 46, 0.2);
   padding: 20px;
-  color: #064E3B;
+  color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,28 +117,31 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(6, 78, 59, 0.3);
+  border-bottom: 1px solid rgba(182, 255, 46, 0.3);
   padding-bottom: 10px;
 }
 
 .id-header-title {
   font-size: 15px;
   font-weight: bold;
-  color: #064E3B;
+  color: #B6FF2E;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .id-header-sub {
   font-size: 10px;
-  color: #35604F;
+  color: #94A3B8;
+  letter-spacing: 0.5px;
 }
 
 .id-chip {
   width: 32px;
   height: 24px;
-  background: linear-gradient(135deg, #d4af37, #f3e5ab);
-  border: 1px solid #b8860b;
+  background: linear-gradient(135deg, #B6FF2E, #78A816);
+  border: 1px solid #B6FF2E;
   border-radius: 4px;
+  box-shadow: 0 0 6px rgba(182, 255, 46, 0.3);
 }
 
 /* ID Card Middle / Body */
@@ -138,12 +157,13 @@ body {
   height: 80px;
   min-width: 80px;
   border-radius: 50%;
-  border: 2px solid #064E3B;
+  border: 2px solid #B6FF2E;
   overflow: hidden;
-  background-color: #F3DDB5;
+  background-color: #181A20;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 10px rgba(182, 255, 46, 0.25);
 }
 
 .id-photo img {
@@ -159,22 +179,22 @@ body {
 .id-name {
   font-size: 17px;
   font-weight: bold;
-  color: #064E3B;
+  color: #FFFFFF;
   margin-bottom: 4px;
 }
 
 .id-number {
   font-size: 12px;
-  color: #064E3B;
+  color: #B6FF2E;
   font-family: monospace;
   margin-bottom: 6px;
 }
 
 .id-badge {
   display: inline-block;
-  background: rgba(6, 78, 59, 0.1);
-  border: 1px solid #064E3B;
-  color: #064E3B;
+  background: rgba(182, 255, 46, 0.12);
+  border: 1px solid #B6FF2E;
+  color: #B6FF2E;
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 10px;
@@ -194,24 +214,24 @@ body {
 
 .id-score-label {
   font-size: 9px;
-  color: #35604F;
+  color: #94A3B8;
   text-transform: uppercase;
 }
 
 /* Score Colors */
-.score-green { color: #064E3B; }
-.score-yellow { color: #b45309; }
-.score-red { color: #b91c1c; }
+.score-green { color: #B6FF2E; }
+.score-yellow { color: #FBBF24; }
+.score-red { color: #F87171; }
 
 /* ID Card Footer */
 .id-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(6, 78, 59, 0.3);
+  border-top: 1px solid rgba(182, 255, 46, 0.3);
   padding-top: 8px;
   font-size: 10px;
-  color: #35604F;
+  color: #94A3B8;
 }
 
 /* Print Only CSS */
@@ -244,12 +264,33 @@ body {
   }
 }
 
-/* Register button sits on the dark header, so flip its colours there */
+/* Form Controls dark theme */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  background-color: #181A20 !important;
+  color: #FFFFFF !important;
+  border-color: #323743 !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #4B5563 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Header button styles */
 header .btn-green {
-  background-color: #F8E7C9;
-  color: #064E3B;
+  background-color: #B6FF2E;
+  color: #23262F;
 }
 
 header .btn-green:hover {
-  background-color: #ffffff;
+  background-color: #9FE61B;
 }

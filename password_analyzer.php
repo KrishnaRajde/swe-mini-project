@@ -1,5 +1,5 @@
 <?php
-// CyberSafe - Password Analyzer Module
+// CyberSafe - Password Analyzer Module (Lime Spark & Graphite Theme with Lucide SVG Icons)
 include "includes/db.php";
 check_login();
 
@@ -10,23 +10,26 @@ include "includes/header.php";
 <div class="max-w-2xl mx-auto">
   <!-- Header -->
   <div class="mb-6 text-center sm:text-left">
-    <h1 class="text-2xl sm:text-3xl font-bold text-[#064E3B] mb-2 flex items-center justify-center sm:justify-start gap-2.5">
-      <span>🔑</span> Password Analyzer
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2 flex items-center justify-center sm:justify-start gap-2.5">
+      <div class="w-8 h-8 rounded-lg bg-[#B6FF2E]/10 border border-[#B6FF2E]/30 flex items-center justify-center text-[#B6FF2E]">
+        <i data-lucide="key-round" class="w-5 h-5"></i>
+      </div>
+      <span>Password <span class="text-[#B6FF2E]">Analyzer</span></span>
     </h1>
-    <p class="text-sm text-[#35604F]">
+    <p class="text-sm text-[#94A3B8]">
       Type any password to test how secure it is against modern brute-force attacks and hacking tricks.
     </p>
   </div>
 
   <!-- Password Testing Card -->
-  <div class="cyber-box rounded-2xl p-6 sm:p-7 border border-[#D9BF8F] mb-6">
+  <div class="cyber-box rounded-2xl p-6 sm:p-7 border border-[#323743] mb-6">
     <div class="flex items-center justify-between gap-2 mb-3">
-      <label class="text-xs font-semibold text-[#064E3B]">
+      <label class="text-xs font-semibold text-white">
         Enter Password to Analyze:
       </label>
-      <a href="password_generator.php" class="text-xs text-[#064E3B] hover:underline flex items-center gap-1 font-semibold">
+      <a href="password_generator.php" class="text-xs text-[#B6FF2E] hover:underline flex items-center gap-1 font-semibold">
         <span>Need a new password?</span>
-        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
       </a>
     </div>
 
@@ -36,52 +39,53 @@ include "includes/header.php";
         type="password" 
         id="pwdInput" 
         placeholder="Type your password here..." 
-        class="w-full bg-[#FDF8EF] border border-[#D9BF8F] focus:border-[#064E3B] rounded-xl px-4 py-3 text-sm text-[#064E3B] placeholder-[#8A9A8C] focus:outline-none transition-colors"
+        class="w-full bg-[#181A20] border border-[#323743] focus:border-[#4B5563] rounded-xl px-4 py-3 text-sm text-white placeholder-[#64748B] focus:outline-none transition-colors"
         autocomplete="off"
       >
-      <button type="button" id="eyeBtn" class="absolute right-3.5 top-3.5 text-[#35604F] hover:text-[#043B2D] text-sm" title="Show/hide password">
-        <i class="fa-solid fa-eye"></i>
+      <button type="button" id="eyeBtn" class="absolute right-3.5 top-3.5 text-[#94A3B8] hover:text-[#B6FF2E] text-sm" title="Show/hide password">
+        <i data-lucide="eye" class="w-4 h-4"></i>
       </button>
     </div>
 
     <!-- Live Strength Meter -->
-    <div class="mb-5 bg-[#FDF8EF] p-4 rounded-xl border border-[#D9BF8F]">
+    <div class="mb-5 bg-[#181A20] p-4 rounded-xl border border-[#323743]">
       <div class="flex justify-between items-center text-xs mb-1.5">
-        <span class="text-[#35604F]">Strength Rating: <strong id="pwdRating" class="text-[#35604F]">Not entered</strong></span>
-        <span id="crackEstimate" class="text-[#064E3B] text-xs font-mono"></span>
+        <span class="text-[#94A3B8]">Strength Rating: <strong id="pwdRating" class="text-[#94A3B8]">Not entered</strong></span>
+        <span id="crackEstimate" class="text-[#B6FF2E] text-xs font-mono"></span>
       </div>
-      <div class="w-full bg-[#F3DDB5] rounded-full h-2.5 overflow-hidden">
-        <div id="pwdBar" class="h-full bg-[#35604F] transition-all duration-300 w-0"></div>
+      <div class="w-full bg-[#2A2E39] rounded-full h-2.5 overflow-hidden">
+        <div id="pwdBar" class="h-full bg-[#94A3B8] transition-all duration-300 w-0"></div>
       </div>
     </div>
 
     <!-- Security Checklist -->
-    <h3 class="text-xs font-bold text-[#064E3B] mb-2 uppercase tracking-wider">Security Requirements Checklist:</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-[#35604F] mb-6">
-      <div id="c-len" class="flex items-center gap-2 p-2 rounded bg-[#FDF8EF] border border-[#D9BF8F]">
-        <i class="fa-solid fa-circle-xmark text-rose-600"></i>
+    <h3 class="text-xs font-bold text-white mb-2 uppercase tracking-wider">Security Requirements Checklist:</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-[#94A3B8] mb-6">
+      <div id="c-len" class="flex items-center gap-2 p-2.5 rounded-lg bg-[#181A20] border border-[#323743]">
+        <i data-lucide="x-circle" class="w-4 h-4 text-rose-500"></i>
         <span>At least 10 characters</span>
       </div>
-      <div id="c-mix" class="flex items-center gap-2 p-2 rounded bg-[#FDF8EF] border border-[#D9BF8F]">
-        <i class="fa-solid fa-circle-xmark text-rose-600"></i>
-        <span>Both uppercase & lowercase letters</span>
+      <div id="c-mix" class="flex items-center gap-2 p-2.5 rounded-lg bg-[#181A20] border border-[#323743]">
+        <i data-lucide="x-circle" class="w-4 h-4 text-rose-500"></i>
+        <span>Both uppercase &amp; lowercase letters</span>
       </div>
-      <div id="c-num" class="flex items-center gap-2 p-2 rounded bg-[#FDF8EF] border border-[#D9BF8F]">
-        <i class="fa-solid fa-circle-xmark text-rose-600"></i>
+      <div id="c-num" class="flex items-center gap-2 p-2.5 rounded-lg bg-[#181A20] border border-[#323743]">
+        <i data-lucide="x-circle" class="w-4 h-4 text-rose-500"></i>
         <span>At least one number (0-9)</span>
       </div>
-      <div id="c-sym" class="flex items-center gap-2 p-2 rounded bg-[#FDF8EF] border border-[#D9BF8F]">
-        <i class="fa-solid fa-circle-xmark text-rose-600"></i>
+      <div id="c-sym" class="flex items-center gap-2 p-2.5 rounded-lg bg-[#181A20] border border-[#323743]">
+        <i data-lucide="x-circle" class="w-4 h-4 text-rose-500"></i>
         <span>At least one special symbol (!@#$)</span>
       </div>
     </div>
 
     <!-- Live Suggestions Box -->
-    <div id="suggestionsBox" class="p-4 rounded-xl bg-[#FDF8EF] border border-[#D9BF8F] text-xs">
-      <h4 class="font-bold text-[#064E3B] mb-1.5 flex items-center gap-1.5">
-        <i class="fa-solid fa-lightbulb"></i> Recommendations:
+    <div id="suggestionsBox" class="p-4 rounded-xl bg-[#181A20] border border-[#323743] text-xs">
+      <h4 class="font-bold text-[#B6FF2E] mb-1.5 flex items-center gap-1.5">
+        <i data-lucide="lightbulb" class="w-4 h-4 text-[#B6FF2E]"></i>
+        <span>Recommendations:</span>
       </h4>
-      <ul id="suggestionList" class="space-y-1 text-[#064E3B]">
+      <ul id="suggestionList" class="space-y-1 text-[#E2E8F0]">
         <li>&bull; Enter a password above to view personalized security recommendations.</li>
       </ul>
     </div>
@@ -103,15 +107,16 @@ include "includes/header.php";
 
   function setBadge(el, text, ok) {
     el.innerHTML = ok 
-      ? '<i class="fa-solid fa-circle-check text-[#064E3B]"></i> <span class="text-[#064E3B] font-medium">' + text + '</span>'
-      : '<i class="fa-solid fa-circle-xmark text-rose-600"></i> <span class="text-[#35604F]">' + text + '</span>';
+      ? '<i data-lucide="check-circle" class="w-4 h-4 text-[#B6FF2E] inline"></i> <span class="text-[#B6FF2E] font-medium">' + text + '</span>'
+      : '<i data-lucide="x-circle" class="w-4 h-4 text-rose-500 inline"></i> <span class="text-[#94A3B8]">' + text + '</span>';
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 
   function analyze(pass) {
     if (!pass) {
       pwdBar.style.width = '0%';
       pwdRating.innerText = 'Not entered';
-      pwdRating.className = 'text-[#35604F]';
+      pwdRating.className = 'text-[#94A3B8]';
       crackEstimate.innerText = '';
       setBadge(cLen, 'At least 10 characters', false);
       setBadge(cMix, 'Both uppercase & lowercase letters', false);
@@ -159,22 +164,22 @@ include "includes/header.php";
     if (score <= 40) {
       pwdBar.className = 'h-full bg-rose-500 transition-all duration-300';
       pwdRating.innerText = 'Weak - Easy to Crack';
-      pwdRating.className = 'text-rose-700 font-bold';
+      pwdRating.className = 'text-rose-400 font-bold';
       crackEstimate.innerText = 'Est. crack time: a few seconds';
     } else if (score <= 75) {
       pwdBar.className = 'h-full bg-amber-500 transition-all duration-300';
       pwdRating.innerText = 'Moderate - Fairly Safe';
-      pwdRating.className = 'text-amber-700 font-bold';
+      pwdRating.className = 'text-amber-400 font-bold';
       crackEstimate.innerText = 'Est. crack time: a few weeks or months';
     } else {
-      pwdBar.className = 'h-full bg-[#064E3B] transition-all duration-300';
+      pwdBar.className = 'h-full bg-[#B6FF2E] transition-all duration-300';
       pwdRating.innerText = 'Strong - Very Secure!';
-      pwdRating.className = 'text-[#064E3B] font-bold';
+      pwdRating.className = 'text-[#B6FF2E] font-bold';
       crackEstimate.innerText = 'Est. crack time: centuries';
     }
 
     if (tips.length === 0) {
-      suggestionList.innerHTML = '<li class="text-[#064E3B] font-medium"><i class="fa-solid fa-check mr-1"></i> Great job! This password meets all security best practices.</li>';
+      suggestionList.innerHTML = '<li class="text-[#B6FF2E] font-medium flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4"></i> Great job! This password meets all security best practices.</li>';
     } else {
       var html = '';
       tips.forEach(function(t) {
@@ -182,6 +187,7 @@ include "includes/header.php";
       });
       suggestionList.innerHTML = html;
     }
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 
   pwdInput.addEventListener('input', function() {
@@ -193,7 +199,8 @@ include "includes/header.php";
   eyeBtn.addEventListener('click', function() {
     isVisible = !isVisible;
     pwdInput.type = isVisible ? 'text' : 'password';
-    eyeBtn.innerHTML = isVisible ? '<i class="fa-solid fa-eye-slash"></i>' : '<i class="fa-solid fa-eye"></i>';
+    eyeBtn.innerHTML = isVisible ? '<i data-lucide="eye-off" class="w-4 h-4"></i>' : '<i data-lucide="eye" class="w-4 h-4"></i>';
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   });
 </script>
 

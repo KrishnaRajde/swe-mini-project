@@ -1,12 +1,12 @@
 <?php
-// CyberSafe - Footer File
+// CyberSafe - Footer File (Lime Spark & Graphite Theme)
 ?>
 </main>
 
-<footer class="bg-[#064E3B] border-t border-[#043B2D] py-6 text-center text-xs text-[#D9C7A5] mt-auto">
+<footer class="bg-[#23262F] border-t border-[#323743] py-6 text-center text-xs text-[#94A3B8] mt-auto">
   <div class="max-w-6xl mx-auto px-4">
-    <p class="font-medium text-[#F8E7C9]">
-      Cyber Security Awareness Website | SWE Mini Project
+    <p class="font-medium text-[#E2E8F0]">
+      <span class="text-[#B6FF2E] font-bold">CyberSafe</span> &bull; Cyber Security Awareness Website | SWE Mini Project
     </p>
   </div>
 </footer>
@@ -50,13 +50,13 @@
       var allTabs = document.querySelectorAll('.nav-tab');
       allTabs.forEach(function(tab) {
         tab.classList.remove('active');
-        tab.classList.remove('text-[#F8E7C9]', 'font-bold', 'border-b-2', 'border-[#F8E7C9]');
-        tab.classList.add('text-[#F8E7C9]');
+        tab.classList.remove('text-[#B6FF2E]', 'font-bold', 'border-b-2', 'border-[#B6FF2E]');
+        tab.classList.add('text-[#94A3B8]');
       });
 
       var activeTab = document.getElementById(navId);
       if (activeTab) {
-        activeTab.classList.remove('text-[#F8E7C9]');
+        activeTab.classList.remove('text-[#94A3B8]');
         activeTab.classList.add('active');
       }
     }
@@ -103,6 +103,11 @@
         ease: 'power2.out'
       });
     });
+  }
+
+  // Initialize Lucide SVG Icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
   }
 </script>
 

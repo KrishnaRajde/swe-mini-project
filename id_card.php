@@ -42,17 +42,25 @@ include "includes/header.php";
 
   <!-- Page Title -->
   <div class="text-center mb-6 no-print">
-    <div class="text-3xl mb-1">🪪</div>
-    <h1 class="text-2xl font-bold text-[#064E3B]">CyberSafe Certified ID Card</h1>
-    <p class="text-xs text-[#35604F] mt-1">Official certificate showing your cybersecurity awareness credential</p>
+    <div class="w-12 h-12 mx-auto mb-2.5 rounded-2xl bg-[#B6FF2E]/10 border border-[#B6FF2E]/30 flex items-center justify-center text-[#B6FF2E] shadow-lg shadow-[#B6FF2E]/10">
+      <i data-lucide="id-card" class="w-6 h-6"></i>
+    </div>
+    <h1 class="text-2xl font-bold text-white">CyberSafe <span class="text-[#B6FF2E]">Certified ID Card</span></h1>
+    <p class="text-xs text-[#94A3B8] mt-1">Official certificate showing your cybersecurity awareness credential</p>
   </div>
 
   <!-- Notice if quiz score is 0 -->
   <?php if ($quiz_score == 0) { ?>
-    <div class="max-w-md mx-auto mb-6 p-4 rounded-xl bg-[#F3DDB5] border border-[#D9BF8F] text-xs text-center no-print">
-      <div class="text-[#064E3B] font-semibold mb-1">Want to update your Quiz Score?</div>
-      <p class="text-[#35604F] mb-3">You can take the 10-question cyber quiz anytime to display your latest score on your ID card.</p>
-      <a href="quiz.php" class="btn-green px-4 py-1.5 rounded-lg text-xs font-bold inline-block">Take Quiz Now &rarr;</a>
+    <div class="max-w-md mx-auto mb-6 p-4 rounded-xl bg-[#23262F] border border-[#323743] text-xs text-center no-print">
+      <div class="text-[#B6FF2E] font-semibold mb-1 flex items-center justify-center gap-1.5">
+        <i data-lucide="help-circle" class="w-4 h-4"></i>
+        <span>Want to update your Quiz Score?</span>
+      </div>
+      <p class="text-[#94A3B8] mb-3">You can take the 10-question cyber quiz anytime to display your latest score on your ID card.</p>
+      <a href="quiz.php" class="btn-green px-4 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1.5 shadow">
+        <span>Take Quiz Now</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </a>
     </div>
   <?php } ?>
 
@@ -65,7 +73,7 @@ include "includes/header.php";
       <!-- 1. Header -->
       <div class="id-card-header">
         <div class="flex items-center gap-2">
-          <span class="text-[#064E3B] text-xl"><i class="fa-solid fa-shield-halved"></i></span>
+          <i data-lucide="shield-check" class="w-6 h-6 text-[#B6FF2E]"></i>
           <div>
             <div class="id-header-title">CyberSafe Certified ID</div>
             <div class="id-header-sub">OFFICIAL SECURITY CREDENTIAL</div>
@@ -80,10 +88,10 @@ include "includes/header.php";
         
         <!-- Circular User Photo -->
         <div class="id-photo">
-          <?php if (!empty($photo) && file_exists($photo)) { ?>
-            <img src="<?php echo htmlspecialchars($photo); ?>" alt="Profile Photo" class="w-full h-full object-cover">
+          <?php if (!empty($photo) && (file_exists($photo) || file_exists(__DIR__ . '/' . $photo))) { ?>
+            <img src="<?php echo htmlspecialchars($photo); ?>" alt="Profile Photo" crossorigin="anonymous" class="w-full h-full object-cover">
           <?php } else { ?>
-            <span class="text-3xl text-[#35604F]"><i class="fa-solid fa-user"></i></span>
+            <i data-lucide="user" class="w-8 h-8 text-[#94A3B8]"></i>
           <?php } ?>
         </div>
 
@@ -91,8 +99,9 @@ include "includes/header.php";
         <div class="id-details">
           <div class="id-name"><?php echo htmlspecialchars($user['name']); ?></div>
           <div class="id-number"><?php echo htmlspecialchars($cybersafe_id); ?></div>
-          <div class="id-badge">
-            <i class="fa-solid fa-circle-check mr-1 text-[#064E3B]"></i> Certified CyberSafe User
+          <div class="id-badge flex items-center gap-1 w-max">
+            <i data-lucide="badge-check" class="w-3.5 h-3.5 text-[#B6FF2E]"></i>
+            <span>Certified CyberSafe User</span>
           </div>
         </div>
 
@@ -100,9 +109,9 @@ include "includes/header.php";
         <div class="id-score-area">
           <div class="id-score-label">Quiz Score</div>
           <div class="id-score-num <?php echo $score_color; ?>">
-            <?php echo $quiz_score; ?><span class="text-xs text-[#35604F] font-normal">/10</span>
+            <?php echo $quiz_score; ?><span class="text-xs text-[#94A3B8] font-normal">/10</span>
           </div>
-          <div class="text-[9px] text-[#35604F]">Awareness</div>
+          <div class="text-[9px] text-[#94A3B8]">Awareness</div>
         </div>
 
       </div>
@@ -111,10 +120,10 @@ include "includes/header.php";
       <div class="id-card-footer">
         <div>
           <span>Issue Date: </span>
-          <strong class="text-[#064E3B]"><?php echo htmlspecialchars($issue_date); ?></strong>
+          <strong class="text-[#B6FF2E]"><?php echo htmlspecialchars($issue_date); ?></strong>
         </div>
         <div class="flex items-center gap-1.5">
-          <i class="fa-solid fa-fingerprint text-[#064E3B]"></i>
+          <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-[#B6FF2E]"></i>
           <span>Verified Digital ID</span>
         </div>
       </div>
@@ -127,25 +136,25 @@ include "includes/header.php";
     
     <!-- Download PNG Button -->
     <button type="button" onclick="downloadCard()" class="btn-green py-2.5 px-5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg">
-      <i class="fa-solid fa-download"></i>
+      <i data-lucide="download" class="w-4 h-4"></i>
       <span>Download PNG</span>
     </button>
 
     <!-- Print Button -->
     <button type="button" onclick="window.print()" class="btn-outline py-2.5 px-5 rounded-xl text-xs font-bold flex items-center gap-2">
-      <i class="fa-solid fa-print"></i>
+      <i data-lucide="printer" class="w-4 h-4"></i>
       <span>Print Card</span>
     </button>
 
     <!-- Upload/Change Photo Button -->
-    <a href="upload_photo.php" class="py-2.5 px-4 rounded-xl bg-[#F3DDB5] text-[#064E3B] hover:text-[#043B2D] border border-[#D9BF8F] text-xs flex items-center gap-2 transition-colors">
-      <i class="fa-solid fa-camera"></i>
+    <a href="upload_photo.php" class="py-2.5 px-4 rounded-xl bg-[#23262F] text-[#E2E8F0] hover:text-[#B6FF2E] hover:border-[#B6FF2E] border border-[#323743] text-xs flex items-center gap-2 transition-colors">
+      <i data-lucide="camera" class="w-4 h-4"></i>
       <span><?php echo empty($photo) ? 'Upload Photo' : 'Change Photo'; ?></span>
     </a>
 
     <!-- Retake Quiz Button -->
-    <a href="quiz.php" class="py-2.5 px-4 rounded-xl bg-[#F3DDB5] text-[#064E3B] hover:text-[#043B2D] border border-[#D9BF8F] text-xs flex items-center gap-2 transition-colors">
-      <i class="fa-solid fa-arrows-rotate"></i>
+    <a href="quiz.php" class="py-2.5 px-4 rounded-xl bg-[#23262F] text-[#E2E8F0] hover:text-[#B6FF2E] hover:border-[#B6FF2E] border border-[#323743] text-xs flex items-center gap-2 transition-colors">
+      <i data-lucide="rotate-cw" class="w-4 h-4"></i>
       <span>Retake Quiz</span>
     </a>
 
@@ -160,12 +169,17 @@ include "includes/header.php";
     html2canvas(card, {
       scale: 3,
       useCORS: true,
+      allowTaint: true,
       backgroundColor: null
     }).then(function(canvas) {
       var link = document.createElement("a");
       link.download = "CyberSafe_Certified_ID_Card.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
+    }).catch(function(err) {
+      console.error("Canvas error:", err);
+      alert("Could not generate PNG download automatically. Using Print dialog instead.");
+      window.print();
     });
   }
 </script>

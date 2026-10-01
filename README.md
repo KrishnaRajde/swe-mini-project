@@ -54,9 +54,30 @@ CREATE TABLE IF NOT EXISTS users (
 );
 ```
 
-## macOS (XAMPP) Setup
-On macOS, XAMPP's Apache runs as the `daemon` user, so it cannot save photos into `uploads/` unless the folder is writable. From the project folder run:
+## macOS Setup Guide (XAMPP / MAMP / PHP)
+
+### 1. Where to place the project on Mac
+- **XAMPP for Mac:** Copy the `cyber` folder to:  
+  `/Applications/XAMPP/xamppfiles/htdocs/cyber`
+- **MAMP for Mac:** Copy the `cyber` folder to:  
+  `/Applications/MAMP/htdocs/cyber`
+
+### 2. Database Connection & Port Configuration
+- Database settings and port are configured in [`includes/db.php`](file:///d:/xampp/htdocs/cyber/includes/db.php).
+- It is currently set to port **3307**:
+  ```php
+  $port = 3307; // Change to 3306 for macOS XAMPP default, or 8889 for MAMP
+  ```
+- If you move the project to Mac and your XAMPP MySQL uses default port **3306**, simply change `$port = 3306;` in `includes/db.php`.
+- Import `database.sql` into phpMyAdmin (`http://localhost/phpmyadmin`) or run the SQL script above.
+
+### 3. Folder Permissions for Photo Uploads on Mac
+On macOS XAMPP, Apache runs under the `daemon` or `_www` user account. Since your Mac user owns the project folder, Apache needs write permission to save photos into `uploads/`.
+
+Open **Terminal** on your Mac, navigate to your project directory, and run:
 ```bash
-chmod 777 uploads uploads/photos
+cd /Applications/XAMPP/xamppfiles/htdocs/cyber
+chmod -R 777 uploads
 ```
-Without this, photo upload fails with "Failed to save uploaded photo" / "Upload folder is not writable".
+*(Tip: `upload_photo.php` now includes automatic permission detection, client-side auto-resizing for high-resolution Mac Retina screenshots/photos, and a one-click copy button for this command).*
+
